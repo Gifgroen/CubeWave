@@ -9,18 +9,18 @@ namespace Gifgroen.Player.Input
         [SerializeField] public CharacterMovementComponent movement;
 
         // ReSharper disable once UnusedMember.Global
-        public void Move(InputAction.CallbackContext c)
+        public void Move(InputAction.CallbackContext context)
         {
-            Vector2 value = c.ReadValue<Vector2>();
-            if (value.x > 0)
+            Vector2 value = context.ReadValue<Vector2>();
+            if (value == Vector2.right)
             {
                 movement.SetMoveRight();
             }
-            else if (value.x < 0f)
+            else if (value == Vector2.left)
             {
                 movement.SetMoveLeft();
             }
-            else
+            else if (value == Vector2.zero)
             {
                 movement.SetStopMove();
             }

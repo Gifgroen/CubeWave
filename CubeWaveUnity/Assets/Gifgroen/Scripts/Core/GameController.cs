@@ -6,7 +6,7 @@ namespace Gifgroen.Core
     {
         private void Start()
         {
-            Debug.Log($"{name}: got Start()");
+            // TODO: 
         }
     }
 }
