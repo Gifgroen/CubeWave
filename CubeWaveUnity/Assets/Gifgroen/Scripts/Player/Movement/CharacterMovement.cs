@@ -3,34 +3,46 @@
 namespace Gifgroen.Player.Movement
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class CharacterMovementComponent : MonoBehaviour
+    public class CharacterMovement : MonoBehaviour
     {
+        [SerializeField] private CharacterRotation characterRotation;
+
         [SerializeField] private Rigidbody movable;
 
-        [Range(1f, 10f)] [SerializeField] private float maxSpeed = 5f;
+        [SerializeField, Range(1f, 10f)] private float maxMoveSpeed = 5f;
 
-        [SerializeField, Range(0f, 100f)] private float maxAcceleration = 64f;
+        [SerializeField, Range(0f, 100f)] private float maxMoveAcceleration = 64f;
 
         private Vector3 _desiredVelocity;
 
         private Vector3 _velocity;
-
-        private Vector3 _moveDirection = Vector3.zero;
 
         private void OnValidate()
         {
             movable = GetComponent<Rigidbody>();
         }
 
+        private void Awake()
+        {
+            characterRotation.SetPreviousDirection(movable.transform.forward);
+            characterRotation.SetDirection(Vector3.zero);
+        }
+
         private void Update()
         {
-            _desiredVelocity = _moveDirection * maxSpeed;
+            _desiredVelocity = characterRotation.GetMoveDirection() * maxMoveSpeed;
         }
 
         private void FixedUpdate()
         {
+            DetermineMoveVelocity();
+            characterRotation.MatchRotation(movable.transform);
+        }
+
+        private void DetermineMoveVelocity()
+        {
             _velocity = movable.velocity;
-            float maxSpeedChange = maxAcceleration * Time.fixedDeltaTime;
+            float maxSpeedChange = maxMoveAcceleration * Time.fixedDeltaTime;
             _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, maxSpeedChange);
             _velocity.y = Mathf.MoveTowards(_velocity.y, _desiredVelocity.y, maxSpeedChange);
             _velocity.z = Mathf.MoveTowards(_velocity.z, _desiredVelocity.z, maxSpeedChange);
@@ -48,7 +60,7 @@ namespace Gifgroen.Player.Movement
 
         private void SetMoveDirection(Vector3 direction)
         {
-            _moveDirection = direction;
+            characterRotation.SetDirection(direction);
         }
     }
 }

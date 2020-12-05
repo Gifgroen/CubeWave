@@ -6,7 +6,7 @@ namespace Gifgroen.Player.Input
 {
     public class CharacterInputComponent : MonoBehaviour
     {
-        [SerializeField] public CharacterMovementComponent movement;
+        [SerializeField] public CharacterMovement movement;
 
         // ReSharper disable once UnusedMember.Global
         public void Move(InputAction.CallbackContext context)
