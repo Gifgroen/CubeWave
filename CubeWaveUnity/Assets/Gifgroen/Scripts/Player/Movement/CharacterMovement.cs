@@ -25,7 +25,7 @@ namespace Gifgroen.Player.Movement
         private void Awake()
         {
             characterRotation.SetPreviousDirection(movable.transform.forward);
-            characterRotation.SetDirection(Vector3.zero);
+            characterRotation.SetDirection(Vector3.zero, false);
         }
 
         private void Update()

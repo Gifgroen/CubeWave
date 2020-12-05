@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 namespace Gifgroen.Player.Movement
 {
-    public class CharacterRotation: MonoBehaviour
+    public class CharacterRotation : MonoBehaviour
     {
         [SerializeField, Range(1, 100)] private float rotateSpeed = 24f;
 
@@ -15,13 +14,17 @@ namespace Gifgroen.Player.Movement
         {
             return _moveDirection;
         }
-        
-        public void SetDirection(Vector3 direction)
+
+        public void SetDirection(Vector3 direction, bool cachePrevious = true)
         {
-            _previousMoveDirection = _moveDirection;
+            if (cachePrevious)
+            {
+                _previousMoveDirection = _moveDirection;
+            }
+
             _moveDirection = direction;
         }
-        
+
         public void SetPreviousDirection(Vector3 direction)
         {
             _previousMoveDirection = direction;
@@ -29,33 +32,17 @@ namespace Gifgroen.Player.Movement
 
         public void MatchRotation(Transform movable)
         {
-            if (_moveDirection != Vector3.zero)
+            bool isMoving = _moveDirection != Vector3.zero;
+            Vector3 currentDirection = isMoving ? _moveDirection : _previousMoveDirection;
+
+            if (movable.rotation != Quaternion.LookRotation(currentDirection))
             {
-                if (movable.rotation != Quaternion.LookRotation(_moveDirection))
-                {
-                    movable.rotation = Quaternion.Slerp(movable.rotation,
-                        Quaternion.LookRotation(_moveDirection), Time.deltaTime * rotateSpeed);
-                }
-                else
-                {
-                    // TODO: notify of target direction.
-                }
+                movable.rotation = Quaternion.Slerp(movable.rotation,
+                    Quaternion.LookRotation(currentDirection), Time.deltaTime * rotateSpeed);
             }
             else
             {
-                if (_previousMoveDirection == Vector3.zero)
-                {
-                    return;
-                }
-                if (movable.rotation != Quaternion.LookRotation(_previousMoveDirection))
-                {
-                    movable.rotation = Quaternion.Slerp(movable.rotation,
-                        Quaternion.LookRotation(_previousMoveDirection), Time.deltaTime * rotateSpeed);
-                }
-                else
-                {
-                    // TODO: notify of target direction.
-                }
+                // TODO: notify of target direction.
             }
         }
     }

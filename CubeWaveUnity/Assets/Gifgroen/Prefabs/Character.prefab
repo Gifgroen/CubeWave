@@ -164,8 +164,8 @@ GameObject:
   - component: {fileID: 6135022240916348806}
   - component: {fileID: 6135022240916348804}
   - component: {fileID: 6135022240916348807}
-  - component: {fileID: 7121723212462039743}
   - component: {fileID: 7714002515227997864}
+  - component: {fileID: 7121723212462039743}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -224,6 +224,19 @@ MonoBehaviour:
   movable: {fileID: 6135022240916348804}
   maxMoveSpeed: 5
   maxMoveAcceleration: 64
+--- !u!114 &7714002515227997864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135022240916348809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93849bf369ca4df4931c3739e00b372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 24
 --- !u!114 &7121723212462039743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,19 +252,6 @@ MonoBehaviour:
   backpack: {fileID: 260449528781882229}
   leftHand: {fileID: 8871653071427632801}
   rightHand: {fileID: 767993110659352880}
---- !u!114 &7714002515227997864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135022240916348809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93849bf369ca4df4931c3739e00b372b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 24
 --- !u!1 &6135022241482796432
 GameObject:
   m_ObjectHideFlags: 0
