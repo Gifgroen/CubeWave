@@ -20,8 +20,7 @@ namespace Gifgroen.Player.Core
             Gizmos.color = Color.green;
             DrawArrow.ForGizmo(position + Vector3.up * 0.5f, cTransform.forward);
 
-            Matrix4x4 rotationMatrix = Matrix4x4.TRS(position, cTransform.rotation,
-                cTransform.lossyScale);
+            Matrix4x4 rotationMatrix = Matrix4x4.TRS(position, cTransform.rotation, cTransform.lossyScale);
             Gizmos.matrix = rotationMatrix;
 
             Gizmos.color = Color.blue;
