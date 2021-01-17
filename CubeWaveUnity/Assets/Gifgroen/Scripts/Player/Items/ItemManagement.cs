@@ -1,7 +1,7 @@
-﻿using Gifgroen.Scripts.Core.Utils;
+﻿using Gifgroen.Utils;
 using UnityEngine;
 
-namespace Gifgroen.Player.Core
+namespace Gifgroen.Player.Items
 {
     public class ItemManagement : MonoBehaviour
     {
