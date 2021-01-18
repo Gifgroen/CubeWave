@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7dcf7afd040484a82b5bef2145a8fe, type: 3}
   m_Name: Clip
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  visual: {fileID: 4348716248596821207, guid: f208d56b202dc4cee84bf0dfbe400e8e, type: 3}
+  projectile: {fileID: 7660957391785307819, guid: f208d56b202dc4cee84bf0dfbe400e8e,
+    type: 3}
   capacity: 8

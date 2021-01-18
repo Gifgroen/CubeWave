@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Gifgroen.Weapon
 {
@@ -7,8 +8,21 @@ namespace Gifgroen.Weapon
     {
         [SerializeField] private Projectile projectile;
 
-        [SerializeField] private GameObject visual;
-
         [SerializeField] private float capacity;
+
+        private void OnValidate()
+        {
+            if (projectile == null)
+            {
+                throw new ArgumentException( "Cannot execute without a Projectile script");
+            }
+        }
+
+        public float Capacity() => capacity; 
+        
+        public GameObject NewProjectile(Vector3 projectileSpawnPoint)
+        {
+            return Instantiate(projectile.gameObject, projectileSpawnPoint, Quaternion.identity);
+        }
     }
 }

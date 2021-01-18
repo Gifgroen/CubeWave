@@ -3,26 +3,25 @@ using UnityEngine;
 
 namespace Gifgroen.Weapon.Editor
 {
-    [CustomEditor(typeof(Weapon))]
+    [CustomEditor(typeof(WeaponBehaviour))]
     public class WeaponCustomEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-
             EditorGUILayout.Space(8);
             EditorGUILayout.LabelField("Actions", EditorStyles.boldLabel);
             
-            Weapon weapon = (Weapon) target;
+            WeaponBehaviour weaponBehaviour = (WeaponBehaviour) target;
             if (GUILayout.Button("Reload"))
             {
-                weapon.Reload(null);
+                weaponBehaviour.Reload(null);
             }
 
             if (GUILayout.Button("Fire"))
             {
-                Weapon.Fire();
+                weaponBehaviour.Fire();
             }                
         }
     }
