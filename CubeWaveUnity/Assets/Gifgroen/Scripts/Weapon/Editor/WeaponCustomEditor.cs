@@ -21,7 +21,7 @@ namespace Gifgroen.Weapon.Editor
 
             if (GUILayout.Button("Fire"))
             {
-                weaponBehaviour.Fire();
+                weaponBehaviour.OnFire();
             }                
         }
     }

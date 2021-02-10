@@ -48,7 +48,13 @@ namespace Gifgroen.Weapon
 
             if (currentVisual == null)
             {
+                currentVisual = GameObject.Find(visual.name);
                 // There is no currentVisual, but we did get a new template. Created it!
+                if (currentVisual != null)
+                {
+                    return;
+                }
+                    
                 currentVisual = InstantiateVisual(visual, transform);
                 return;
             }

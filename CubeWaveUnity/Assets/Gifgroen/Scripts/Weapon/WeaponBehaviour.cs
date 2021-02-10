@@ -8,13 +8,16 @@ namespace Gifgroen.Weapon
 
         [SerializeField] private Transform projectileSpawnPoint;
 
-        public void Fire()
+        [SerializeField] private WeaponConfiguration weaponConfiguration;
+
+        private void OnEnable()
         {
-            GameObject spawn = clip.NewProjectile(projectileSpawnPoint.position);
-            if (spawn.TryGetComponent(out Projectile p))
-            {
-                p.SetMoveDirection(transform.forward);
-            }
+            weaponConfiguration.FireEvent += OnFire;
+        }
+
+        private void OnDisable()
+        {
+            weaponConfiguration.FireEvent -= OnFire;
         }
 
         public void Reload(Clip newClip)
@@ -22,5 +25,16 @@ namespace Gifgroen.Weapon
             clip = newClip;
             Debug.Log($"Reload()");
         }
+
+        public void OnFire()
+        {
+            GameObject spawn = clip.NewProjectile(projectileSpawnPoint.position);
+            if (spawn.TryGetComponent(out Projectile p))
+            {
+                p.SetMoveDirection(transform.forward);
+            }
+        }
+        
+
     }
 }

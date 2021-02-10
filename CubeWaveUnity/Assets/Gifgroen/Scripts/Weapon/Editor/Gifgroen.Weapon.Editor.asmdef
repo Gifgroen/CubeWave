@@ -1,7 +1,8 @@
 {
     "name": "Gifgroen.Weapon.Editor",
     "references": [
-        "GUID:737154f835b4b4f77955dc56e3d1f0c5"
+        "GUID:737154f835b4b4f77955dc56e3d1f0c5",
+        "GUID:2fa881c8a162148238afa40da1e7eac7"
     ],
     "includePlatforms": [
         "Editor"
