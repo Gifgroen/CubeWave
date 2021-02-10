@@ -1,0 +1,17 @@
+{
+    "name": "Gifgroen.Weapon",
+    "references": [
+        "GUID:494a40481ae0c4020939e7facfdc2dcd",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:2fa881c8a162148238afa40da1e7eac7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

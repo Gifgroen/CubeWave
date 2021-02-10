@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gifgroen.Scripts.Core.Utils
+namespace Gifgroen.Utils
 {
     public static class DrawArrow
     {
